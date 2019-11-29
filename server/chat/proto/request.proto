@@ -1,0 +1,25 @@
+syntax = "proto2";
+
+package protocol;
+
+message HeartBeatReq{}
+
+//创建房间
+message CreateRoomReq {
+	required	string		RoomName	= 1;
+}
+
+//进入房间
+message EnterRoomReq {
+	required	string		RoomName	= 1;
+}
+
+//离开房间
+message LeaveRoomReq {
+	required	string		RoomName	= 1;
+}
+
+//聊天请求
+message ChatReq {
+	required	string		Data		= 1;
+}

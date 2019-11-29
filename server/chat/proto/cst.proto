@@ -1,0 +1,49 @@
+syntax = "proto2";
+
+package protocol;
+
+//创建房间
+message CreateRoomCst {
+	required	string		PlayerId	= 1;
+	required	string		RoomName	= 2;
+}
+
+//进入房间
+message EnterRoomCst {
+	required	string		PlayerId	= 1;
+	required	string		RoomName	= 2;
+}
+
+//进入房间,cst回复
+message EnterRoomCstResponse {
+	required	string		PlayerId	= 1;
+	required	string		RoomName	= 2;
+	required	bool		Result		= 3;
+	required	string		RoomId		= 4;
+}
+
+//离开房间
+message LeaveRoomCst {
+	required	string		PlayerId	= 1;
+	required	string		RoomName	= 2;
+}
+
+//离开房间,cst回复
+message LeaveRoomCstResponse {
+	required	string		PlayerId	= 1;
+	required	string		RoomName	= 2;
+	required	bool		Result		= 3;
+}
+
+//聊天请求
+message ChatCst {
+	required	string		RoomName	= 1;
+	required	string		Data		= 2;
+	required	string		PlayerId	= 3;
+}
+
+//聊天请求，cst回复
+message ChatCstResponse{
+	required	string		PlayerId	= 1;
+	required	bool		Result		= 2;
+}
