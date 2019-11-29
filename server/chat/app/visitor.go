@@ -6,6 +6,7 @@ import (
 	"chat_server/chat/session"
 	"fmt"
 	"github.com/gorilla/websocket"
+	"github.com/wonderivan/logger"
 	"io"
 	"time"
 )
@@ -58,7 +59,7 @@ func (v *Visitor) responseLoop() {
 		switch pattern {
 		case "reply":
 			if err := v.Session.Conn.WriteMessage(websocket.BinaryMessage , message) ; err != nil {
-
+				logger.Error("visitor write failed by playerId %s : %s",v.Session.PlayerId , err)
 			}
 		case "stop":
 			v.Processor.Stop()
